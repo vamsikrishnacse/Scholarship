@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="hospital.com">
+  <link rel="icon" href="images/icon.png" type="image/x-icon">
+  <title>Book Appointment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<style>
+  ::-webkit-scrollbar {
+    width: 25px;
+}
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(0, 255, 255);
+    background-color: black;
+    border-radius: 12px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(243, 27, 27);
+    border-radius: 10px;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: red;
+}
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+  }
+  section{
+    position: relative;
+   }
+
+  form{
+    padding: 10px;
+  }
+  select{margin-top: 5px;}
+  input{margin-top: 10px;
+    background: rgb(243, 243, 243);
+    padding: 10px;
+    border: none;
+    width: 100%;}
+  .container{
+    background-color: white;
+    padding: 30px;
+    width: 600px;
+    border-radius: 5px;
+  }
+  button{
+    border: none;
+    padding: 10px;
+    width: 100%;
+    background-color: #d966ff;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+  header a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: none;
+    color: #5bc0de;
+}
+
+footer {
+    width: 100%;
+    background: black;
+    float: left;
+    color: white;
+    padding: 30px 0;
+}
+
+footer .footer-box {
+    width: 25%;
+    float: left;
+    height: 100%;
+}
+
+footer .footer-box a {
+    display: block;
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+footer .footer-box a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.slideshow-container {
+    position: relative;
+    margin: auto;
+}
+
+.slide {
+    -webkit-animation-name: slide;
+    -webkit-animation-duration: 2s;
+    animation-name: slide;
+    animation-duration: 2s;
+}
+
+.container-fluid{
+  background-image:url(images/logo23.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+</style>
+<body>
+
+ 
+
+<div style="background-color: #DF691A; padding-bottom: 10px"></div>
+
+<div class="container-fluid" style="background-color: #DF691A;">
+  <section>
+    <div class="W-80">
+        <div class="form-box">
+           
+            <form style="color: black;">
+              <div class="container">
+               <center> <h1>Make an appointment</h1></center>
+                <br>
+            <label for="name"><b>Name:</b></label><br/>
+        <input type="text" placeholder="enter your name" name="name" id="name" required/>
+    <br/><br/>
+    <label for="email"><b>Email:</b></label><br/>
+        <input type="email" placeholder="enter your email" name="email" id="email" required/>
+    <br/><br/>
+    <label for="mobile"><b>Mobile:</b></label><br/>
+        <input type="number" placeholder="enter your mobile number" name="mobile" id="phone number" pattern="[0-9]{10}"  required/>
+    <br/><br/>
+    <label for="date"><b>date:</b></label><br/>
+        <input type="date" name="date" id="date" required/>
+    <div class="main" style="display: flex; justify-content: space-between; width: 80%; margin-left: 10%; margin-top: 35px;">
+      <div class="left">
+        <label for="gender"><b>Gender:</b></label></br>
+        <select id="gender">
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+        <br/><br>
+        <label for="slot"><b>Slot:</b></label></br>
+        
+        <select id="slot">
+          <option value="morning">morning</option>
+          <option value="afternoon">afternoon</option>
+          <option value="evening">evening</option>
+        </select>
+      </div>
+      &n
+      <div class="right">
+        <label for="city"><b>City:</b></label></br>
+        <select id="city">
+          <option value="chennai">chennai</option>
+          <option value="coimbatore">coimbatore</option>
+          <option value="tiruppur">tiruppur</option>
+        </select>
+        
+
+      </div>
+    </div>
+
+
+
+    
+    
+    <br><br>
+    <button type="submit" id="register-btn" >submit</button>
+  </div>
+</form>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+  var slideIndex = 1,
+      n = 1;
+  showSlides();
+
+  function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides ");
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none ";
+      }
+      if (slideIndex > slides.length) {
+          slideIndex = 1
+      }
+      if (n > slides.length) {
+          slideIndex = 1
+      }
+      if (n < 1) {
+          slideIndex = slides.length
+      }
+      slides[slideIndex - 1].style.display = "block ";
+      setTimeout(showSlides, 5000);
+      slideIndex++;
+  }
+</script>
+    
+    </body>
+    </html>

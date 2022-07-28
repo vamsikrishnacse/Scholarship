@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management</title>
+    <link rel="stylesheet" href="project.css">
+
+</head>
+<body>
+    <h2>Create Scheme</h2>
+    <table cellpadding="15" cellspacing="2" align="center">
+        <th class="row1">Scheme Name</th>
+        <tr>
+            <td class="col1">Scheme Name
+                <br><span id="e1"></span> 
+            </td>
+            
+            <td class="col2"><input type="text" name="Scheme name" id="SName" placeholder="Scheme name"></td>
+            
+        </tr>
+        <th class="row1">Scholarship Type</th>
+        <tr>
+            <td class="col1">Scholarship Type
+                <br><span id="e2"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Scholarship Type" id="SType" placeholder="Scholarship Type"></td>
+        </tr>
+        <th class="row1">Scholarship grade</th>
+        <tr>
+            <td class="col1">Scholarship grade
+                <br><span id="e3"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Scholarship grade" id="SGrade" placeholder="Scholarship grade"></td>
+        </tr>
+        <th class="row1">Year Of Scholarship</th>
+        <tr>
+            <td class="col1">Year Of Scholarship
+                <br><span id="e4"></span> 
+            </td>
+            <td class="col2"><input type="date" name="Year Of Scholarship" id="Scholarship" class="startDate"></td>
+        </tr>
+        <th class="row1">Category</th>
+        <tr>
+            <td class="col1">Category
+                <br><span id="e5"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Category" id="Category" placeholder="Category"></td>
+        </tr>
+        <th class="row1">Eligibility</th>
+        <tr>
+            <td class="col1">Eligibility
+                <br><span id="e6"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Eligibility" id="Eligibility" placeholder="Eligibility"></td>
+        </tr>
+        <th class="row1">Required Doc</th>
+        <tr>
+            <td class="col1">Required Doc
+                <br><span id="e7"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Required Doc" id="RDoc" placeholder="Required Doc"></td>
+        </tr>
+        <th class="row1">Time Limit</th>
+        <tr>
+            <td class="col1">Time Limit
+                <br><span id="e8"></span> 
+            </td>
+            <td class="col2"><input type="text" name="Time Limit" id="TLimit" placeholder="Time Limit"></td>
+        </tr>
+        <th class="row1">Description</th>
+        <tr>
+            <td class="col1">Description
+                <br><span id="e9"></span> 
+            </td>
+            <td class="col2"><textarea name="description" id="description" cols="35" rows="4"></textarea></td>
+        </tr>
+        <tr colspan="2" align="center">
+            <td>
+                <button type="submit" class="submit1"  onclick="myFunction()">Submit</button>
+            </td>
+            <td>
+                <button type="reset" class="reset1" onclick="resetProjectDetails()">Clear</button>
+            </td>
+        </tr>
+        <tr colspan="1" align="center">
+            <td>
+                <button type="reset" class="reset2" onclick="resetProjectDetails()">Clear</button>
+            </td>
+        </tr>
+    </table>
+    <script src="project.js"></script>
+</body>
+
+</html>
