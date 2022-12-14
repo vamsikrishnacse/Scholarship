@@ -1,87 +1,3 @@
-// function submitProjectDetails() {
-//     var SchemeName = document.getElementById("SName")
-//     var ScholarshipType = document.getElementById("SType")
-//     var ScholarshipGrade = document.getElementById("SGrade")
-//     var Category = document.getElementById("Category")
-//     var Eligibility = document.getElementById("Eligibility")
-//     var RequiredDoc = document.getElementById("RDoc")
-//     var TimeLimit = document.getElementById("TLimit")
-//     let see = 0
-//  // project name validation
-//     if (SchemeName.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(SchemeName.value);
-//     }
-//     if (ScholarshipType.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(ScholarshipType.value);
-//     }
-//     if (ScholarshipGrade.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(ScholarshipGrade.value);
-//     }
-//     if (Category.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(Category.value);
-//     }
-//     if (Eligibility.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(Eligibility.value);
-//     }
-//     if (RequiredDoc.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(RequiredDoc.value);
-//     }
-//     if (TimeLimit.value == "") {
-//         see = see+1;
-//     } else {
-//         alert(TimeLimit.value);
-//     }
-    
-    
-//     // Assigned to validation
-//     var person = pAssigned.options[pAssigned.selectedIndex].value;
-//     if (person == "" || person=="Select") {
-//         alert("Project Assigned to field cannot be empty");
-//     } else {
-//         alert(pAssigned.options[pAssigned.selectedIndex].value);
-//     }
-//   // Date validation
-//     // start date
-//     if (sDate.value == "") {
-//         alert(" Please Enter the Starting date");
-//     } else {
-//         alert(document.getElementById("SDate").value);
-//     }
-//     // End date
-//     if (eDate.value == 0) {
-//         alert("Please enter the end date ");
-//     } else {
-//         alert(document.getElementById("EDate").value);
-//     }
-//    //priority validation
-//     var Prior = document.querySelector('input[name="priority"]:checked');
-
-//     if (Prior != null) {
-//         alert("The priority of project is:" + Prior.value);
-
-//     } else {
-//         alert("You did not select the priority of the project");
-//     }
-// // description validation
-
-//     if (Description.value == "") {
-//         alert("You did not write the project description");
-//     } else {
-//         alert(document.getElementById("description").value);
-//     }
-// }
 function resetProjectDetails() {
     document.getElementById("PName").value = '';
     document.getElementById("projectAssigned").value = 'Select';
@@ -89,6 +5,8 @@ function resetProjectDetails() {
     document.getElementById("EDate").value = '';
     document.querySelector('input[name="priority"]').value = '';
     document.getElementById("description").value = '';
+	let text1 = "Going to the Next Page!\nEither Next or Cancel.";
+	confirm(text1)
 }
 function myFunction() {
 			i=0;
@@ -101,8 +19,9 @@ function myFunction() {
             var TimeLimit = document.getElementById("TLimit")
             var Scholarship = document.getElementById("Scholarship")
             var description = document.getElementById("description")
+			var email = document.getElementById("Email")
 		
-		var letters = /^[A-Za-z]+$/;
+		  var letters = /^[A-Za-z]+$/;
 		  var error1 = document.getElementById("e1")
 		  var error2 = document.getElementById("e2")
 		  var error3 = document.getElementById("e3")
@@ -112,7 +31,8 @@ function myFunction() {
           var error7 = document.getElementById("e7")
           var error8 = document.getElementById("e8")
           var error9 = document.getElementById("e9")
-		//   var email= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		  var error10 = document.getElementById("e10")
+		  var Email= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		  
 		
 		  
@@ -194,7 +114,7 @@ function myFunction() {
 		 }
          TimeLimit
 
-         if(TimeLimit.value.match(letters)  && TimeLimit.value!="")
+         if(TimeLimit.value!="")
 		 {
 			error8.textContent = ""
 			i+=1
@@ -214,18 +134,29 @@ function myFunction() {
 			error9.textContent = "Description cant be empty"
             error9.style.color = "red"
 		 }
+
+		 if(email.value!="" && email.value.match(Email))
+		 {
+			error10.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error10.textContent = "Please check these field"
+            error10.style.color = "red"
+		 }
 		
 		  let text = "Going to the Next Page!\nEither Next or Cancel.";
-		  if(i==9){
+		  if(i==10){
 			
 	  if (confirm(text) == true) {
-		window.location.assign("next.html");
+		window.location.assign("index/index.html");
 	  } 
 		 }else{
 				var myText = "Fill the form correctly";
 		alert (myText);
 			 }
 	
-			
+	
 		} 
 	

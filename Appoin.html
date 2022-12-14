@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="style.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Make an appointment</div>
+    <div class="content" ng-app = "mainApp" ng-controller = "bookingController">
+      <form name="Appointment" action="book.html" method="post">
+        <div class="user-details">
+
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" id="name2" name="full_name" ng-model="name1" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red" ng-show = "Appointment.full_name.$dirty && Appointment.full_name.$invalid">
+                <span ng-show="Appointment.full_name.$error.required">Name is required*</span>
+            </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" id="email" name="email" ng-model="email1" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red" ng-show = "Appointment.email.$dirty && Appointment.email.$invalid">
+                <span ng-show="Appointment.email.$error.required">email is required*</span>
+            </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="number" placeholder="Enter your number" id="number" name="number" ng-model="number1" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red" ng-show = "Appointment.number.$dirty && Appointment.number.$invalid">
+                <span ng-show="Appointment.number.$error.required">Name is required*</span>
+            </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Date</span>
+            <input type="date" placeholder="Date for Appointment" id="Date" name="Date" ng-model="Date1" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red" ng-show = "Appointment.Date.$dirty && Appointment.Date.$invalid">
+                <span ng-show="Appointment.Date.$error.required">Date is required*</span>
+            </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Country</span>
+          <select name="Country" class="form-control"  ng-options = "k as v for (k,v) in country" ng-model="children1" required>
+            <option value="" selected hidden>Select</option>     
+        </select>
+        <span class="select-arrow"></span>
+       
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color:red" ng-show = "Appointment.Country.$touched">
+          <span ng-show="Appointment.Country.$error.required">   Country is required*</span>
+      </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">State</span>
+            <select name="State" class="form-control"  ng-options = "k as v for (k,v) in  State" ng-model="State1" required>
+              <option value="" selected hidden>Select</option>     
+          </select>
+          <span class="select-arrow"></span>
+         
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color:red" ng-show = "Appointment.State.$touched">
+            <span ng-show="Appointment.State.$error.required">   State is required*</span>
+        </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">City</span>
+            <select name="City" class="form-control"  ng-options = "k as v for (k,v) in City" ng-model="City1" required>
+              <option value="" selected hidden>Select</option>     
+          </select>
+          <span class="select-arrow"></span>
+         
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color:red" ng-show = "Appointment.City.$touched">
+            <span ng-show="Appointment.City.$error.required">   City is required*</span>
+        </span>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Confirm Slot</span>
+            <input type="text" placeholder="morning/afternoon/evening.." id="name" name="Slot" ng-model="Slot1" required>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:red" ng-show = "Appointment.Slot.$dirty && Appointment.Slot.$invalid">
+                <span ng-show="Appointment.Slot.$error.required">Slot is required*</span>
+            </span>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" name="gender" value="Male">
+          <input type="radio" name="gender" id="dot-2" name="gender" value="Female">
+          <input type="radio" name="gender" id="dot-3" name="gender" value="NO">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" ng-model="Save" value="Book"style="cursor:pointer;" ng-diabled="Appointment.full_name.$dirty && Appointment.full_name.$invalid || 
+          Appointment.email.$dirty && Appointment.email.$invalid ||
+          Appointment.number.$dirty && Appointment.number.$invalid||
+          Appointment.Date.$dirty && Appointment.Date.$invalid ||Appointment.State.$touched || Appointment.Country.$touched||
+          Appointment.City.$touched|| Appointment.Slot.$dirty && Appointment.Slot.$invalid">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    var mainApp = angular.module("mainApp", []);
+    
+    mainApp.controller('bookingController', function($scope) {
+       $scope.reset = function() {
+        $scope.country = {"Europe":"Europe","India":"India","America":"America","South":"South"};
+        $scope.State = {"AP":"AP","TN":"TN","KA":"KA","KAR":"KAR"};
+        $scope.City = {"Viraganur":"Viraganur","Vengavasal":"Vengavasal","Tiruchengode":"Tiruchengode","Tharangambadi":"Tharangambadi"};
+       }
+       
+       $scope.reset();
+    });
+ </script>
+</body>
+</html>

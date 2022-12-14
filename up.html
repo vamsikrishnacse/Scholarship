@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+   
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+::selection{
+  background: rgba(26,188,156,0.3);
+}
+.container{
+  max-width: 440px;
+  padding: 0 20px;
+  margin: 10px auto;
+}
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 60px;
+  background: #4831D4;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form{
+  padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .row input:focus{
+  border-color: #4831D4;
+  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+}
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #4831D4;
+  border: 1px solid #4831D4;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: #16a085;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+  text-decoration: underline;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #4831D4;
+  border: 1px solid #4831D4;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #4831D4;
+}
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #16a085;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+
+    </style>
+    <script>
+      function myFunction() {
+        console.log("hi")
+			i=0;
+            var UName = document.getElementById("UName")
+            var FName = document.getElementById("FName")
+            var Date = document.getElementById("Date")
+            var email = document.getElementById("Email")
+            var gender = document.getElementById("gender")
+            var age = document.getElementById("age")
+            var number = document.getElementById("number")
+            var bio = document.getElementById("bio")
+		
+		  var letters = /^[A-Za-z]+$/;
+		  var error1 = document.getElementById("e1")
+		  var error2 = document.getElementById("e2")
+		  var error3 = document.getElementById("e3")
+		  var error4 = document.getElementById("e4")
+          var error5 = document.getElementById("e5")
+          var error6 = document.getElementById("e6")
+          var error7 = document.getElementById("e7")
+          var error8 = document.getElementById("e8")
+		  var Email= /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		  
+		
+		  
+		if(UName.value.match(letters)  && UName.value!="")
+		 {
+			error1.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error1.textContent = "Please enter a valid User Name(no numaric)"
+            error1.style.color = "red"
+		 }
+
+         if(FName.value.match(letters)  && FName.value!="")
+		 {
+			error2.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error2.textContent = "Please enter a valid Full Name"
+				error2.style.color = "red"
+		 }
+		 
+         if( Date.value!="")
+		 {
+			error3.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error3.textContent = "Please enter a valid Date"
+				error3.style.color = "red"
+		 }
+
+     if(email.value!="" && email.value.match(Email))
+		 {
+			error4.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error4.textContent = "Please check these field"
+      error4.style.color = "red"
+		 }
+
+         if( gender.value!="" )
+		 {
+			error5.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error5.textContent = "Please enter a valid gender"
+				error5.style.color = "red"
+		 }
+
+
+         if(age.value!="")
+		 {
+			error6.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error6.textContent = "Please enter a valid age"
+				error6.style.color = "red"
+		 }
+
+         if(number.value.length==10  && number.value!="")
+		 {
+			error7.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error7.textContent = "Please enter a valid number"
+            error7.style.color = "red"
+            error7.style.fontSize = 2
+		 }
+
+         if(bio.value.match(letters)  && bio.value!="")
+		 {
+			error8.textContent = ""
+			i+=1
+		 }
+	   else
+		 {
+			error8.textContent = "Please enter a valid Bio"
+				error8.style.color = "red"
+		 }
+        
+
+		 
+		
+		  let text = "Going to the Next Page!\nEither Next or Cancel.";
+		  if(i==8){
+			
+	  if (confirm(text) == true) {
+		window.location.assign("index.html");
+	  } 
+		 }else{
+				var myText = "Fill the form correctly";
+		alert (myText);
+			 }
+	
+	
+		} 
+    </script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <div class="main_div">
+  
+
+
+  <div class="container">
+    <div class="wrapper">
+      <div class="title"><span>Update Profile</span></div>
+      <div class="card2">
+        <br>
+        <img src="images/demo/backgrounds/34.png" style="border-radius: 100px; width: 120px;height: 120px;align-items: center;margin-left: 33%;">
+        <input type="file" id="choose-file" size="80">  
+      </div>
+      <form action="#">
+        <div class="row">
+          <!-- <i class="fas fa-user"></i> -->
+          
+          <input type="text" placeholder="User Name" id="UName">
+          <span id="e1"></span> 
+          
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="text" placeholder="Full Name"id="FName" >
+          <span id="e2"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="date" placeholder="Date"  id="Date">
+          <span id="e3"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="email" placeholder="Email" id="Email">
+          <span id="e4"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="text" placeholder="Gender" id="gender">
+          <span id="e5"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="number" placeholder="Age" id="age">
+          <span id="e6"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <input type="number" placeholder="Phone Number" id="number">
+          <span id="e7"></span> 
+        </div>
+        <div class="row">
+          <!-- <i class="fas fa-lock"></i> -->
+          <!-- <label>Enter Bio </label> -->
+          <textarea id="w3review" id="bio"name="w3review" rows="2" cols="52" placeholder="Bio" ></textarea>
+          <span id="e8"></span> 
+        </div>
+        <div class="row button">
+          <input type="submit" onclick="myFunction()" value="Update Profile">
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</body>
+</html>

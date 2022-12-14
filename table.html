@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <script>
+    var myapp = angular.module('myapp',[])
+    myapp.controller('controll', function ($scope) {
+        $scope.data = {data};
+       
+    })
+</script>
 </head>
 <style>
     body {
@@ -13,6 +19,7 @@
 
 strong {
   font-weight: bold; 
+  
 }
 
 em {
@@ -27,6 +34,7 @@ table {
   line-height: 24px;
   margin: 30px auto;
   text-align: left;
+  
   width: 800px;
 } 
 
@@ -114,76 +122,105 @@ tbody:hover tr:hover td {
   text-shadow: 0 1px 0 #fff;
 }
 
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 330px;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
+
+
     </style>
 <body>
-    <table>
+  <div class="wrap" >
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="What are you looking for?">
+       <button type="submit" class="searchButton">
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+ </div>
+ <div class="wrap2"  ng-app = "myapp" ng-controller = "controll">
+    <table >
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Full Name</th>
         <th>Email</th>
-        <th>Mobile</th>
-        <th>College</th>
-        <th>Year</th>
-        <th>class/Department</th>
-        <th>Address</th>
+        <th>Phone NUmber</th>
+        <th>Date </th>
+        <th>City</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>Confirm</th>
+        <th>Confiem</th>
+        <th>Gender</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>         
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>
-      <tr>
-        <td><strong>Vamsi</strong></td>
-        <td>Vamsiam65467@gmail.com</td>
-        <td>9392475566</td>
-        <td>Amrita school of engineering</td>
-        <td>2022</td>
-        <td>CSE</td>
-        <td>Rajahmundry</td>
-      </tr>
+      <% for(var i=0; i<data.length; i++) {%>
+        <form name="<%= data[i].BookingId %>" action="/deletebooking" method="POST">
+       <tr>
+         <td><%= data[i].BookingId %></td>
+         <td><%= data[i].HotelName %></td>
+         <td><%= data[i].FullName %></td>
+         <td><%= data[i].Place %></td>
+         <td><%= data[i].Checkin %></td>
+         <td><%= data[i].Checkout %></td>
+         <td><%= data[i].Rooms %></td>
+         <td><%= data[i].Adults %></td>
+         <td><%= data[i].Email %></td>
+         <td><%= data[i].Phone %></td>
+         <td><input type="number" value ="<%= data[i].BookingId %>" name="bid" style="display:none"> 
+          <button type="submit" value="<%= data[i].BookingId %>" style=" background-color: red;color: white; border-radius: 5px; border: 2px solid white;cursor: pointer; font-size: 20px;" > Delete </button> 
+          <button type="submit" value="<%= data[i].BookingId %>" style=" background-color: green;color: white; border-radius: 5px; border: 2px solid white;cursor: pointer; font-size: 20px;" >Update</button></td>
+
+       </tr>
+       </form>
+       <% } %>
+    </form>
     </tbody>
   </table>
+</div>
 </body>
 </html>
